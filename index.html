@@ -1,106 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kaustubh Deotighare | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaustubh Deotighare · Portfolio</title>
+    <!-- Font Awesome 5 (free) for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <!-- Google Fonts: Inter & Space Grotesk for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f6f9fc;
+            font-family: 'Inter', sans-serif;
+            color: #1a2639;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px -10px rgba(0,20,40,0.15);
+            overflow: hidden;
+            padding: 2.5rem 2.8rem;
+        }
+
+        /* header section */
+        .name-title {
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #eaeef5;
+            padding-bottom: 1.8rem;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0b1e33;
+            line-height: 1.1;
+            margin-bottom: 0.3rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2c3e5c;
+            background: #eef3fa;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            margin-top: 0.5rem;
+        }
+
+        .edu-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.8rem;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            color: #2e405b;
+        }
+
+        .edu-badge i {
+            color: #2b6c9e;
+            width: 1.4rem;
+        }
+
+        /* education table */
+        .edu-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #f2f7fd;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            margin: 1.8rem 0 2.2rem;
+            font-size: 0.95rem;
+        }
+
+        .edu-table th {
+            background-color: #dbe6f2;
+            font-weight: 600;
+            padding: 0.9rem 1rem;
+            text-align: left;
+            color: #0e2a44;
+        }
+
+        .edu-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #cbd6e4;
+        }
+
+        .edu-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* section headings */
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 650;
+            letter-spacing: -0.01em;
+            margin: 2rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 8px solid #2b6c9e;
+            padding-left: 1rem;
+        }
+
+        .section-heading i {
+            color: #2b6c9e;
+            font-size: 1.8rem;
+        }
+
+        /* cards */
+        .exp-card, .project-card {
+            background: #ffffff;
+            border: 1px solid #e2eaf2;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,20,40,0.02);
+            transition: 0.2s ease;
+        }
+
+        .exp-card:hover, .project-card:hover {
+            border-color: #b0c8de;
+            box-shadow: 0 8px 18px rgba(33,89,164,0.08);
+        }
+
+        .exp-header, .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.7rem;
+        }
+
+        .exp-title, .project-title {
+            font-size: 1.5rem;
+            font-weight: 650;
+            color: #0b2b4a;
+        }
+
+        .org-name {
+            font-weight: 600;
+            color: #346b99;
+            margin-right: 1rem;
+        }
+
+        .date-badge {
+            font-size: 0.9rem;
+            background: #e5ecf3;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #1e3e64;
+            white-space: nowrap;
+        }
+
+        .professor {
+            font-size: 0.95rem;
+            color: #3f5775;
+            margin: 0.4rem 0 0.8rem 0;
+            font-style: italic;
+        }
+
+        .desc-list {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+
+        .desc-list li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            gap: 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        .desc-list li i {
+            color: #2b6c9e;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            min-width: 1.2rem;
+        }
+
+        .tools {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            background: #ecf3fa;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            display: inline-block;
+            color: #1c4468;
+            font-weight: 500;
+        }
+
+        .tools i {
+            margin-right: 0.4rem;
+            color: #1c5a9c;
+        }
+
+        /* skills, cert, etc */
+        .skills-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            background: #f1f7fe;
+            border-radius: 1.8rem;
+            padding: 1.8rem 2rem;
+            margin: 1.5rem 0 1.8rem;
+        }
+
+        .skill-cat {
+            flex: 1 1 240px;
+        }
+
+        .skill-cat h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #003057;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px solid #b9d1e9;
+            padding-bottom: 0.3rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.8rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #b4cbe0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #153e64;
+        }
+
+        .skill-tag i {
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+            color: #2a6b9e;
+        }
+
+        .elementary-note {
+            font-size: 0.85rem;
+            color: #4f658d;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.2rem 0 1.5rem;
+        }
+
+        .cert-item {
+            background: #eef3f9;
+            border-radius: 40px;
+            padding: 0.6rem 1.6rem;
+            font-weight: 500;
+            color: #113355;
+            border: 1px solid #c3d7ec;
+        }
+
+        .por-hobby {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 1.5rem;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid #d8e5f0;
+            margin-top: 1.5rem;
+        }
+
+        .por-item, .hobby-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .por-item i, .hobby-item i {
+            font-size: 1.6rem;
+            color: #2b6c9e;
+            min-width: 2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            color: #4a6b8a;
+            text-align: right;
+            border-top: 1px dashed #c2d6e8;
+            padding-top: 1.2rem;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #d2e0ed, transparent);
+        }
+
+        /* mobile tweaks */
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 2.4rem; }
+            .exp-header { flex-direction: column; gap: 0.3rem; }
+        }
+
+        /* simple print style */
+        @media print {
+            body { background: white; padding: 0.2in; }
+            .container { box-shadow: none; padding: 0.2in; }
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <nav class="navbar">
-            <h1 class="logo">Kaustubh</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Hi, I'm <span>Kaustubh Deotighare</span></h2>
-            <p>Project Lead | B.Tech Computer Technology | App & Web Developer</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary">View Projects</a>
-                <a href="mailto:deotigharekaustubh@gmail.com" class="btn secondary">Hire Me</a>
+    <div class="container">
+        <!-- header: name + current role -->
+        <div class="name-title">
+            <h1>Kaustubh Deotighare</h1>
+            <div class="subhead"><i class="fas fa-rocket" style="margin-right: 8px;"></i>Project Lead · B.Tech Computer Technology</div>
+            <div class="edu-badge">
+                <span><i class="fas fa-university"></i> YCCE, Nagpur</span>
+                <span><i class="fas fa-calendar-alt"></i> 2024 – Present</span>
+                <span><i class="fas fa-star"></i> CGPA: 7.33 (current)</span>
             </div>
         </div>
-    </section>
 
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>
-            I'm a Computer Technology student at YCCE Nagpur with experience in leading development teams,
-            building mobile apps, and managing full-cycle projects. I specialize in Flutter-based hybrid apps,
-            automation systems, and project execution.
-        </p>
-    </section>
-
-    <section id="experience" class="section">
-        <h2>Experience</h2>
-
-        <div class="card">
-            <h3>Project Lead – AN Magicks World</h3>
-            <span>Jan 2025 - Present</span>
-            <p>Led development of course & website platform. Managed lifecycle, collaboration and growth strategy.</p>
+        <!-- EDUCATION TABLE (exactly as in resume) -->
+        <div style="margin-top: -0.5rem;">
+            <div class="section-heading"><i class="fas fa-graduation-cap"></i>Education</div>
+            <table class="edu-table">
+                <thead>
+                    <tr><th>Degree/Certificate</th><th>Institute/Board</th><th>CGPA/Percentage</th><th>Year</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>B.Tech.</td><td>Yeshwantrao Chavan College of Engineering (YCCE)</td><td>7.33 (Current)</td><td>2024-Present</td></tr>
+                    <tr><td>Diploma</td><td>Maharashtra State Board of Technical Education</td><td>87.60%</td><td>2023</td></tr>
+                    <tr><td>Secondary</td><td>CBSE Board</td><td>73.0%</td><td>2020</td></tr>
+                </tbody>
+            </table>
         </div>
 
-        <div class="card">
-            <h3>Business & Operations Manager – Swastic Ethenic</h3>
-            <span>Sept 2024 - Dec 2024</span>
-            <p>Managed sales, marketing, operations & cross-functional workflows to drive efficiency.</p>
+        <!-- EXPERIENCE -->
+        <div class="section-heading"><i class="fas fa-briefcase"></i>Experience</div>
+
+        <!-- AN Magicks World -->
+        <div class="exp-card">
+            <div class="exp-header">
+                <span class="exp-title">AN Magicks World - Course & Website Platform</span>
+                <span class="date-badge">Jan 2025 – Present</span>
+            </div>
+            <div style="font-weight: 600; color:#1f4973; margin-bottom: 0.4rem;">Project Lead & Lead Developer</div>
+            <ul class="desc-list">
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Managed end-to-end lifecycle: dynamic website + integrated course management system.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Directed course design and content workflows; ensured timely delivery of high-quality modules.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Drove platform growth through strategic planning, enhancing user engagement and reach.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Aligned technical execution with business goals (web & app teams).</li>
+            </ul>
+            <div class="tools"><i class="fas fa-wrench"></i> Wix · Sheets · Jira</div>
         </div>
-    </section>
 
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-
-        <div class="card">
-            <h3>Trip Rapid – Travel App</h3>
-            <p>Hybrid Flutter app with Firebase backend. Integrated bus, flight & hotel booking system.</p>
-            <p><strong>Tech:</strong> Flutter, Firebase, Figma, Jira</p>
+        <!-- Swastic Ethenic -->
+        <div class="exp-card">
+            <div class="exp-header">
+                <span class="exp-title">Swastic Ethenic</span>
+                <span class="date-badge">Sept 2024 – Dec 2024</span>
+            </div>
+            <div style="font-weight: 600; color:#1f4973; margin-bottom: 0.4rem;">Business & Operations Manager</div>
+            <ul class="desc-list">
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Managed end-to-end business operations: sales, marketing, production, maintenance, scheduling.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Streamlined cross-functional processes to improve efficiency and daily operations.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Coordinated teams to align growth strategies with operational execution.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem; align-self: center;"></i>Oversaw resource planning & workflow optimisation.</li>
+            </ul>
+            <div class="tools"><i class="fas fa-wrench"></i> Excel · Sheets · Google Form · Jira</div>
         </div>
 
-        <div class="card">
-            <h3>Home Automation System</h3>
-            <p>Alexa-integrated system to control lights & fans using NodeMCU & ESP32.</p>
-            <p><strong>Tech:</strong> Alexa Skills Kit, ESP32, C++</p>
+        <!-- PROJECTS -->
+        <div class="section-heading"><i class="fas fa-code-branch"></i>Projects</div>
+
+        <!-- Trip Rapid -->
+        <div class="project-card">
+            <div class="exp-header">
+                <span class="project-title">Trip Rapid - Mobile App</span>
+                <span class="date-badge">Jan 2023 – Jun 2024</span>
+            </div>
+            <div class="professor"><i class="fas fa-chalkboard-teacher"></i> Professor: Roshni Dharme</div>
+            <ul class="desc-list">
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Led 4-member team to develop hybrid GPS travel app using Flutter (cross-platform).</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Ensured Android/iOS compatibility, backend integration with Firebase.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Integrated bus/flight/hotel bookings for all-in-one planning.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Conducted market research, user testing, refined UI via Figma.</li>
+            </ul>
+            <div class="tools"><i class="fas fa-tools"></i> Flutter · Firebase · Figma · Jira · Slides · Zoom</div>
         </div>
-    </section>
 
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <span>Python</span>
-            <span>Flutter</span>
-            <span>Firebase</span>
-            <span>Jira</span>
-            <span>Excel</span>
-            <span>Google Sheets</span>
-            <span>Project Management</span>
+        <!-- Home Automation System -->
+        <div class="project-card">
+            <div class="exp-header">
+                <span class="project-title">Home Automation System</span>
+                <span class="date-badge">Aug 2022 – Dec 2022</span>
+            </div>
+            <div class="professor"><i class="fas fa-microchip"></i> Automation Project</div>
+            <ul class="desc-list">
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Developed Alexa-integrated system to control lights/fans via voice, mobile app, and switches.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Implemented real-time feedback for seamless operation.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Collaborated with hardware/software teams for smooth integration.</li>
+                <li><i class="fas fa-circle" style="font-size: 0.45rem;"></i>Conducted user testing to refine responsiveness.</li>
+            </ul>
+            <div class="tools"><i class="fas fa-tools"></i> Alexa Skills Kit · NodeMCU · ESP32 · C++</div>
         </div>
-    </section>
 
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>Email: deotigharekaustubh@gmail.com</p>
-        <p>Phone: +91 9209225782</p>
-        <p>
-            <a href="https://linkedin.com/in/kaustubhdeotighare" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/Kaustubh-Deotighare01" target="_blank">GitHub</a>
-        </p>
-    </section>
+        <!-- TECHNICAL SKILLS (with elementary note) -->
+        <div class="section-heading"><i class="fas fa-cog"></i>Technical Skills</div>
+        <div class="skills-block">
+            <div class="skill-cat">
+                <h3>Languages</h3>
+                <div class="skill-items">
+                    <span class="skill-tag"><i class="fas fa-code"></i> Python*</span>
+                </div>
+                <div class="elementary-note">* Elementary proficiency</div>
+            </div>
+            <div class="skill-cat">
+                <h3>Developer Tools</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Sheets</span>
+                    <span class="skill-tag">Jira</span>
+                    <span class="skill-tag">Asana</span>
+                    <span class="skill-tag">Trello</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">PowerPoint</span>
+                </div>
+            </div>
+        </div>
 
-    <footer>
-        <p>© 2026 Kaustubh Deotighare. All Rights Reserved.</p>
-    </footer>
+        <!-- CERTIFICATIONS + POSITIONS + ACHIEVEMENTS/HOBBIES (merged) -->
+        <div class="section-heading"><i class="fas fa-award"></i>Certifications & More</div>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem;">
+            <div class="cert-item"><i class="fas fa-certificate" style="margin-right: 0.5rem;"></i>Google - Project Management Professional</div>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- POSITIONS OF RESPONSIBILITY / ACHIEVEMENTS -->
+        <div class="por-hobby">
+            <div class="por-item">
+                <i class="fas fa-robot"></i>
+                <div><strong>Secretary</strong><br>Robotics Club, Roboadhyegan</div>
+            </div>
+            <div class="por-item">
+                <i class="fas fa-trophy"></i>
+                <div><strong>Third Position · Departmental Topper</strong><br>MSBTE Exam</div>
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-magic"></i>
+                <div><strong>Card Magic · Reading · Teaching · Finance</strong></div>
+            </div>
+        </div>
+
+        <!-- small footnote: the resume had "Card Magic, Reading Self help books, Teaching, Finance" -->
+        <div style="margin-top: 1rem; font-size: 0.95rem; background-color: #f3f9ff; padding: 0.6rem 1.5rem; border-radius: 40px; color:#264e73;">
+            <i class="fas fa-heart" style="color:#bb2b4a; margin-right: 8px;"></i> Hobbies: Card Magic, Self‑help books, Teaching, Finance
+        </div>
+
+        <!-- footer note (just to mirror resume closing) -->
+        <div class="footer-note">
+            <i class="fas fa-file-pdf"></i> built from Kaustubh Deotighare resume · project lead portfolio
+        </div>
+    </div>
+    <!-- end container -->
 </body>
 </html>
